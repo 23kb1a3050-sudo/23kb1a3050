@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ES6 & DOM Features Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    button { padding: 10px 15px; margin-bottom: 15px; cursor: pointer; }
+    #output { background: #f4f4f4; padding: 15px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+  <h1>ES6 & DOM Manipulation Demo</h1>
+
+  <button id="runDemoBtn">Run Demo</button>
+
+  <div id="output"></div>
+
+  <script>
+    // Hoisting example: function declaration hoisted (can call before declaration)
+    showHoistingMessage();
+
+    function showHoistingMessage() {
+      console.log('👋 This message is from a hoisted function!');
+    }
+
+    // Arrow function: sums two numbers
+    const sum = (a, b) => a + b;
+
+    // Spread operator: merging arrays
+    const arr1 = [1, 2, 3];
+    const arr2 = [4, 5];
+    const mergedArr = [...arr1, ...arr2];
+
+    // Rest operator: takes variable number of args and sums them
+    const sumAll = (...nums) => nums.reduce((acc, n) => acc + n, 0);
+
+    // Type coercion examples
+    const coercion1 = 5 + "10";  // "510" (number + string -> string concatenation)
+    const coercion2 = "20" - 5;  // 15 (string coerced to number in subtraction)
+
+    // Object destructuring
+    const person = {
+      name: "Alice",
+      age: 28,
+      city: "Wonderland"
+    };
+    const { name, age, city } = person;
+
+    // Array destructuring
+    const [first, second, ...rest] = mergedArr;
+
+    // Button click handler: update output div with all demo results
+    const runDemo = () => {
+      const outputDiv = document.getElementById('output');
+
+      outputDiv.innerHTML = `
+        <h2>Demo Output</h2>
+        <p><strong>Arrow function (sum 5 + 10):</strong> ${sum(5, 10)}</p>
+        <p><strong>Spread operator (merged arrays):</strong> [${mergedArr.join(', ')}]</p>
+        <p><strong>Rest operator (sum all numbers 1, 2, 3, 4, 5):</strong> ${sumAll(1, 2, 3, 4, 5)}</p>
+        <p><strong>Type coercion examples:</strong></p>
+        <ul>
+          <li>5 + "10" = "${coercion1}" (number + string → string)</li>
+          <li>"20" - 5 = ${coercion2} (string - number → number)</li>
+        </ul>
+        <p><strong>Hoisting:</strong> Check console for hoisting message logged on page load.</p>
+        <p><strong>Template literals & Object destructuring:</strong> Hello, my name is ${name}, I am ${age} years old and live in ${city}.</p>
+        <p><strong>Array destructuring:</strong> First: ${first}, Second: ${second}, Rest: [${rest.join(', ')}]</p>
+      `;
+    };
+
+    // Add event listener to button for basic DOM manipulation
+    document.getElementById('runDemoBtn').addEventListener('click', runDemo);
+  </script>
+
+</body>
+</html>
