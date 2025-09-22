@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Function Types Demo</title>
+  <style>
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Click a Button to Trigger a Function</h2>
+  <button id="btn-declare">Function Declaration</button>
+  <button id="btn-expression">Function Expression</button>
+  <button id="btn-arrow">Arrow Function</button>
+
+  <script>
+    // i. Function Declaration
+    function showGreeting() {
+      alert("Hello! This is a function declaration.");
+    }
+
+    // ii. Function Expression
+    const showFarewell = function() {
+      alert("Goodbye! This is a function expression.");
+    };
+
+    // iii. Arrow Function
+    const showThanks = () => {
+      alert("Thanks! This is an arrow function.");
+    };
+
+    // Attach event listeners instead of inline onclick attributes
+    document.getElementById('btn-declare').addEventListener('click', showGreeting);
+    document.getElementById('btn-expression').addEventListener('click', showFarewell);
+    document.getElementById('btn-arrow').addEventListener('click', showThanks);
+  </script>
+
+</body>
+</html>
