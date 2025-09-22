@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Button Click Handler</title>
+  <style>
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Click a Button</h2>
+  <button class="action-btn" data-id="1">Button 1</button>
+  <button class="action-btn" data-id="2">Button 2</button>
+  <button class="action-btn" data-id="3">Button 3</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.action-btn');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', () => {
+          const buttonId = button.dataset.id;
+          console.log(`Button ${buttonId} clicked`);
+          alert(`You clicked Button ${buttonId}`);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
